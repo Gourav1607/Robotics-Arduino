@@ -11,7 +11,7 @@
 #include <LiquidCrystal.h>
 #include <dht.h>
 
-LiquidCrystal disp(2,3,4,5,6,7,8);
+LiquidCrystal disp(2, 3, 4, 5, 6, 7, 8);
 
 #define dhtPin A1 //no ; here. Set equal to channel sensor is on
 int tem = 0;
@@ -28,7 +28,8 @@ byte degree[8] = {0b01110,
 
 dht DHT;
 
-void setup() {
+void setup()
+{
     disp.createChar(1, degree);
     disp.begin(16, 2);
     disp.print("Temperature=");
@@ -39,10 +40,11 @@ void setup() {
     disp.print("Humidity=");
     disp.setCursor(11, 1);
     disp.print('%');
-    delay(1000);//Let system settle
-}//end "setup()"
+    delay(1000); //Let system settle
+} //end "setup()"
 
-void loop() {
+void loop()
+{
     //This is the "heart" of the program.
     DHT.val(dhtPin);
     tem = DHT.temperature;
@@ -55,4 +57,4 @@ void loop() {
     //Don't try to access too frequently... in theory
     //should be once per two seconds, fastest,
     //but seems to work after 0.8 second.
-}   // end loop()
+} // end loop()

@@ -1,9 +1,11 @@
-void setup() {
+void setup()
+{
     pinMode(5, INPUT);
     pinMode(12, OUTPUT);
 }
 
-void loop() {
+void loop()
+{
     byte Read = digitalRead(5);
     if (Read == 1)
         digitalWrite(12, HIGH);
